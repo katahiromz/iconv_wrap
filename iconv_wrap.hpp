@@ -3,7 +3,7 @@
 // This file is public domain software.
 
 #ifndef ICONV_WRAP_HPP_
-#define ICONV_WRAP_HPP_     2   // Version 2
+#define ICONV_WRAP_HPP_     3   // Version 3
 
 #include <iconv.h>
 
@@ -50,6 +50,7 @@ inline bool iconv_wrap::open(const char *to, const char *from)
 {
     close();
     m_cd = iconv_open(to, from);
+    return is_open();
 }
 
 inline bool iconv_wrap::is_open() const
